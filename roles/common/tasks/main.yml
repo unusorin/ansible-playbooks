@@ -1,0 +1,29 @@
+- name: Install common required packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - mc
+    - make
+    - gcc
+    - wget
+    - curl
+    - zsh
+    - htop
+    - software-properties-common
+
+- name: Add git ppa
+  apt_repository: repo='ppa:git-core/ppa'
+
+- name: Install latest version of git
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - git
+    - git-core
+
+- name: Enable colors in git
+  shell: git config --global color.ui auto
+
+- name: Configure git user name
+  shell: git config --global user.name '{{ name }}'
+
+- name: Configure git user email
+  shell: git config --global user.email '{{ email }}'

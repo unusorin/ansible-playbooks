@@ -1,0 +1,12 @@
+- name: get home dir for user {{ user }}
+  shell: eval echo ~{{ user }}
+  register: user_homedir
+
+- name: Install Oh My ZSH from source
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest={{ user_homedir.stdout }}/.oh-my-zsh
+
+- name: deploy .zshrc
+  template: src=zsh.rc dest={{ user_homedir.stdout }}/.zshrc owner={{ user }}
+
+- name: Set zsh as default shell
+  user: name={{ user }} shell=/bin/zsh

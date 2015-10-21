@@ -1,0 +1,21 @@
+- name: Add ppa for nginx
+  apt_repository: repo='ppa:nginx/stable'
+
+- name: Install required packages
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - nginx
+    - php5-fpm
+    - php5-cgi
+
+- name: Add nginx config
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf owner=root group=root mode=0644
+
+- name: Add PHP fpm config
+  template: src='php-fpm.conf' dest=/etc/php5/fpm/pool.d/www.conf owner=root group=root mode=0644
+
+- name: Restart services
+  service: name={{ item }} state=restarted
+  with_items:
+    - php5-fpm
+    - nginx
