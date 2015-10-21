@@ -20,6 +20,10 @@
 - name: Unarchive PHPStorm
   unarchive: src='/opt/phpstorm.tar.gz' dest=/opt copy=no
 
+- name: Remove old installation
+  shell: rm -rf /opt/phpstorm
+  ignore_errors: yes
+
 - name: Rename PHPStorm location
   shell: mv /opt/PhpStorm* /opt/phpstorm
 
