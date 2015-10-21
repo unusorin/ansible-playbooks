@@ -1,0 +1,17 @@
+- name: Download and install composer
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin creates=/usr/local/bin/composer
+
+- name: Setup global binary for composer
+  shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
+
+- name: Add execute permissions for composer
+  shell: chmod a+x /usr/local/bin/composer
+
+- name: Download robo
+  shell: wget http://robo.li/robo.phar
+
+- name: Robo global install
+  shell: mv robo.phar /usr/local/bin/robo
+
+- name: Add execute permissions for robo
+  shell: chmod +x /usr/local/bin/robo
