@@ -8,6 +8,7 @@
     - curl
     - zsh
     - htop
+    - tar
     - software-properties-common
 
 - name: Add git ppa
