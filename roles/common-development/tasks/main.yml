@@ -3,6 +3,7 @@
   with_items:
     - siege
     - python-setuptools
+    - ufw
 
 - name: Install NodeJS ppa
   shell: curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -21,3 +22,15 @@
 
 - name: Install Python PIP
   shell: curl -sL https://bootstrap.pypa.io/get-pip.py | python -
+
+- name: Add docker apt key
+  shell: wget -qO- https://get.docker.io/gpg | apt-key add -
+
+- name: Add docker repository
+  apt_repository: repo='deb http://get.docker.io/ubuntu docker main'
+
+- name: Install docker
+  apt: name=lxc-docker state=latest update_cache=yes
+
+- name: Disable root access
+  exec: usermod -aG docker {{ user }}

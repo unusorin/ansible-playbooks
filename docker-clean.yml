@@ -1,0 +1,4 @@
+- name: Docker clean
+  hosts: localhost
+  roles:
+    - { role: docker-cleanup }

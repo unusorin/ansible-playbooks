@@ -8,5 +8,5 @@
     - { role: oh-my-zsh , user: sorin }
     - { role: php-5.5 }
     - { role: nginx-php, wwwuser: sorin }
-    - { role: common-development }
+    - { role: common-development, user: sorin }
     - { role: common-development-ui }

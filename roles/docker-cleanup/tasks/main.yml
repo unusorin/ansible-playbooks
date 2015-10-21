@@ -1,0 +1,15 @@
+- name: Remove all exited containers
+  shell: docker rm -v $(docker ps -a -q -f status=exited)
+  ignore_errors: yes
+
+- name: Delete all stopped containers (including data-only containers)
+  shell: docker rm $(docker ps -a -q)
+  ignore_errors: yes
+
+- name: Delete all 'untagged/dangling' (<none>) images
+  shell: docker rmi $(docker images -f "dangling=true" -q)
+  ignore_errors: yes
+
+- name: Delete all unwanted volumes
+  shell: docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+  ignore_errors: yes
