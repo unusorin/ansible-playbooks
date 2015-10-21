@@ -1,0 +1,15 @@
+- name: Install required repositories
+  apt_repository: repo={{ item }}
+  with_items:
+    - ppa:olivier-berten/misc #mysqlworkbench repo
+    - ppa:webupd8team/sublime-text-2
+    - ppa:webupd8team/atom
+    - ppa:gnome-terminator/nightly
+
+- name: Install development tools
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - mysql-workbench
+    - sublime-text
+    - atom
+    - terminator

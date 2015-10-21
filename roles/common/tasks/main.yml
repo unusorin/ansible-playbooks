@@ -1,5 +1,5 @@
 - name: Install common required packages
-  apt: name={{ item }} state=latest
+  apt: name={{ item }} state=latest force=yes
   with_items:
     - mc
     - make
@@ -27,3 +27,12 @@
 
 - name: Configure git user email
   shell: git config --global user.email '{{ email }}'
+
+- name: Add Java 1.8 PPA
+  apt_repository: repo='ppa:webupd8team/java'
+
+- name: install java 1.8
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - oracle-java8-installer
+    - oracle-java8-set-default

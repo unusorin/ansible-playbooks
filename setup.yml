@@ -5,6 +5,7 @@
   roles:
 #    - { role: common, name: "Sorin Badea", email: "sorin.badea91@gmail.com" }
 #    - { role: oh-my-zsh , user: root }
-    - { role: php-5.5 }
+#    - { role: php-5.5 }
 #    - { role: nginx-php, wwwuser: sorin }
 #    - { role: common-development }
+    - { role: common-development-ui }
