@@ -10,3 +10,4 @@
     - { role: nginx-php, wwwuser: sorin }
     - { role: common-development, user: sorin }
     - { role: common-development-ui }
+    - { role: common-ui }

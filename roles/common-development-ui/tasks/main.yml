@@ -13,6 +13,7 @@
     - sublime-text
     - atom
     - terminator
+    - qgit
 
 - name: Download PHPStorm
   get_url: url=http://download.jetbrains.com/webide/PhpStorm-9.0.2.tar.gz dest=/opt/phpstorm.tar.gz

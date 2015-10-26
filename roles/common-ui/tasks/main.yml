@@ -1,0 +1,25 @@
+- name: Add google chrome key
+  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+- name: Add google chrome repository
+  shell: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+
+- name: Add repository for gnome-pie
+  apt_repository: repo='ppa:simonschneegans/testing'
+
+- name: Add repository for albert
+  apt_repository: repo='ppa:nilarimogard/webupd8'
+
+- name: Install google chrome stable and other packages
+  apt: name={{ item }}  state=latest update_cache=yes
+  with_items:
+    - google-chrome-stable
+    - thunderbird
+    - firefox
+    - vlc
+    - mc
+    - gnome-pie
+    - albert
+
+- name: Install speedtest for cli
+  get_url: url=https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py dest=/usr/local/bin/speedtest mode=0440
