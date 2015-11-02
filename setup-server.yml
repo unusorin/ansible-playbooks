@@ -13,4 +13,3 @@
     - { role: php-nginx, wwwuser: sorin }
     - { role: php-5.5 }
     - { role: php-composer }
-    - { role: php-nginx }
