@@ -1,0 +1,16 @@
+- name: Setup ubuntu
+  remote_user: sorin
+  sudo: yes
+  hosts: localhost
+  roles:
+    - { role: common }
+    - { role: git }
+    - { role: java }
+    - { role: nodejs }
+    - { role: docker, user: sorin }
+    - { role: oh-my-zsh, user: sorin }
+    - { role: oh-my-zsh, user: root }
+    - { role: php-nginx, wwwuser: sorin }
+    - { role: php-5.5 }
+    - { role: php-composer }
+    - { role: php-nginx }

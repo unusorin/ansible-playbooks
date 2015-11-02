@@ -24,4 +24,3 @@
     - php5-xcache
     - php-pear
 
-- include: ../../common-php/tasks/main.yml
