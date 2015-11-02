@@ -1,0 +1,9 @@
+- name: Add Java PPA
+  apt_repository: repo='ppa:webupd8team/java'
+
+- name: install java
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - oracle-java7-installer
+    - oracle-java8-installer
+    - oracle-java8-set-default

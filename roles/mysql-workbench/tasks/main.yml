@@ -1,0 +1,5 @@
+- name: Add repo
+  apt_repository: repo=ppa:olivier-berten/misc
+
+- name: Install MySQL WorkBench
+  apt: name=mysql-workbench state=latest update_cache=yes

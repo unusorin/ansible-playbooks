@@ -1,0 +1,8 @@
+- name: Add docker apt key
+  shell: wget -qO- https://get.docker.io/gpg | apt-key add -
+
+- name: Add docker repository
+  apt_repository: repo='deb http://get.docker.io/ubuntu docker main'
+
+- name: Install docker
+  apt: name=lxc-docker state=latest update_cache=yes

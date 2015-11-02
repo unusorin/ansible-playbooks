@@ -1,0 +1,2 @@
+- name: Disable root access for user {{ user }}
+  shell: usermod -aG docker {{ user }}

@@ -1,0 +1,5 @@
+- name: Add repo
+  apt_repository: repo=ppa:webupd8team/sublime-text-2
+
+- name: Install Sublime Text
+  apt: name=sublime-text state=latest update_cache=yes

@@ -1,0 +1,5 @@
+- name: Add repo
+  apt_repository: repo=ppa:gnome-terminator/nightly
+
+- name: Install Terminator
+  apt: name=terminator state=latest update_cache=yes

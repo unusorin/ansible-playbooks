@@ -1,0 +1,5 @@
+- name: Install NodeJS ppa
+  shell: curl -sL https://deb.nodesource.com/setup | bash -
+
+- name: Install NodeJS
+  apt: name=nodejs state=latest update_cache=yes

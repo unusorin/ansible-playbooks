@@ -11,29 +11,17 @@
     - tar
     - software-properties-common
 
-- name: Add git ppa
-  apt_repository: repo='ppa:git-core/ppa'
-
-- name: Install latest version of git
+- name: Install development packages
   apt: name={{ item }} state=latest update_cache=yes
   with_items:
-    - git
-    - git-core
+    - siege
+    - python-setuptools
+    - ufw
 
-- name: Enable colors in git
-  shell: git config --global color.ui auto
+- name: Install Python PIP
+  shell: curl -sL https://bootstrap.pypa.io/get-pip.py | python -
 
-- name: Configure git user name
-  shell: git config --global user.name '{{ name }}'
-
-- name: Configure git user email
-  shell: git config --global user.email '{{ email }}'
-
-- name: Add Java 1.8 PPA
-  apt_repository: repo='ppa:webupd8team/java'
-
-- name: install java 1.8
+- name: Install GUI Tools
   apt: name={{ item }} state=latest update_cache=yes
   with_items:
-    - oracle-java8-installer
-    - oracle-java8-set-default
+    - qgit

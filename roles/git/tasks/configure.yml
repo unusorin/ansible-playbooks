@@ -1,0 +1,8 @@
+- name: Enable colors in git
+  shell: git config --global color.ui auto
+
+- name: Configure git user name
+  shell: git config --global user.name '{{ name }}'
+
+- name: Configure git user email
+  shell: git config --global user.email '{{ email }}'

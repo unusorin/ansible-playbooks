@@ -1,0 +1,18 @@
+- name: Download PHPStorm
+  get_url: url=http://download.jetbrains.com/webide/PhpStorm-{{ version|default('9.0.2') }}.tar.gz dest=/opt/phpstorm.tar.gz
+
+- name: Unarchive PHPStorm
+  unarchive: src='/opt/phpstorm.tar.gz' dest=/opt copy=no
+
+- name: Remove old installation
+  shell: rm -rf /opt/phpstorm
+  ignore_errors: yes
+
+- name: Rename PHPStorm location
+  shell: mv /opt/PhpStorm* /opt/phpstorm
+
+- name: Add desktop entry
+  template: src='jetbrains-phpstorm.desktop' dest=/usr/share/applications/jetbrains-phpstorm.desktop owner=root group=root mode=0644
+
+- name: Remove archive
+  file: path=/opt/phpstorm.tar.gz state=absent
