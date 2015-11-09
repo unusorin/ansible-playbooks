@@ -1,5 +1,5 @@
 - name: Download PHPStorm
-  get_url: url=http://download.jetbrains.com/webide/PhpStorm-{{ version|default('9.0.2') }}.tar.gz dest=/opt/phpstorm.tar.gz
+  get_url: url=http://download.jetbrains.com/webide/PhpStorm-{{ version|default('10.0') }}.tar.gz dest=/opt/phpstorm.tar.gz
 
 - name: Unarchive PHPStorm
   unarchive: src='/opt/phpstorm.tar.gz' dest=/opt copy=no

@@ -5,4 +5,4 @@
   apt_repository: repo='deb http://get.docker.io/ubuntu docker main'
 
 - name: Install docker
-  apt: name=lxc-docker state=latest update_cache=yes
+  apt: name=docker-engine state=latest update_cache=yes
